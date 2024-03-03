@@ -6,6 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+<style>
+div {
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+}
+img {
+    width: 200px;
+}
+
+</style>
 </head>
 <body>
 <script>
@@ -41,49 +52,57 @@
     // побудувати структуру по шаблону
     // Масив:
 
-       // let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
+       let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
+    // замість 'ITEM OF ARRAY' підставити елемент з масиву щоб получився цілий список з даними з масиву
 
-   // ШАБЛОН:
-       // <ul>
-         //  <li>ITEM OF ARRAY</li>
-            //<!--
-              //  і тд інші об'єкти масиву
-                // ...
-                 //..
-                 //...
-           // -->
-      // </ul>
+    // -----------------------------------------------
 
-   // замість 'ITEM OF ARRAY' підставити елемент з масиву щоб получився цілий список з даними з масиву
+    document.write(`<ul>`)
+for (let item of listOfItems){
+    console.log(item);
+    document.write(`<li> ${item}</li>`)
+}
+    document.write(`</ul>`)
 
-   // -----------------------------------------------
+
+
+
 
     //     Використовуючи данні з масиву, за допомоги document.write та циклу
     // побудувати структуру по шаблону
     // Великими літерами прописанні властивості об'єкту які потрібно впровадити в шаблон
 
-  // let products = [
-  //       {
-  //           title: 'milk',
-  //           price: 22,
-  //           image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
-  //       },
-  //       {
-  //           title: 'juice',
-  //           price: 27,
-  //           image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
-  //       },
-  //       {
-  //           title: 'tomato',
-  //           price: 47,
-  //           image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
-  //       },
-  //       {
-  //           title: 'tea',
-  //           price: 15,
-  //           image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
-  //       },
-  //   ];
+
+  let products = [
+         {
+             title: 'milk',
+             price: 22,
+             image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
+         },
+         {
+             title: 'juice',
+             price: 27,
+             image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
+         },
+         {
+             title: 'tomato',
+             price: 47,
+             image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
+         },
+         {
+             title: 'tea',
+             price: 15,
+             image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
+         }
+     ];
+for (const product of products) {
+    document.write(`<div class="product-card">
+       <h3 class="product-title">${product.title} <br>
+             price: ${product.price}</h3>
+       <img src="${product.image}" alt="product" class = "product-image">
+        </div>`)
+}
+
   //
   //  // ШАБЛОН
   //   <div class="product-card">
@@ -125,7 +144,7 @@
     }
      //- користувачів які старші за 30 років
     for (let user of users){
-        if (!user.age > 30){
+        if (user.age > 30){
             console.log(user)
         }
     }
