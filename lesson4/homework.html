@@ -14,42 +14,45 @@
     function figure(a, b) {
         return a * b;}
     let x1 = figure(5,3);
-    console.log(x1)
+    console.log(x1);
 
     // - створити функцію яка обчислює та повертає площу кола з радіусом r
     function circle( pi, r) {
         return pi * (r * r);
     }
     let x2 = circle(3.14, 7);
-    console.log(x2)
+    console.log(x2);
 
     // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r
     function area( pi, h, r) {
         return (2 * pi) * h * r;
     }
     let x3= area(3.14, 3, 10);
-    console.log(x3)
+    console.log(x3);
 
     // - створити функцію яка приймає масив та виводить кожен його елемент
-function dogCards( name, breed, age){
-        document.write(`
-            <div>
-                <h2>
-                    ім'я - ${name},
-                    порода - ${breed},
-                    вік - ${age},
-                </h2>
-            </div>
-        `)
-}
     let dogMas = [
         {  name:'jeck', breed:'spaniel',age: 3,},
         {  name:'buba', breed:'buldog',age: 4,},
         {  name:'boy', breed:'beagl',age: 2,}
     ];
-    for (const dog of dogMas){
-        dogCards(dog.name, dog.breed, dog.age);
+
+    function dogCards(array){
+    for (const dog of array) {
+        document.write(`
+            <div>
+                <h2>
+                    ім'я - ${dog.name},
+                    порода - ${dog.breed},
+                    вік - ${dog.age}
+                </h2>
+            </div>
+        `)
     }
+}
+  dogCards(dogMas);
+
+
 
 
     // - створити функцію яка створює параграф з текстом. Текст задати через аргумент
@@ -82,24 +85,100 @@ uls("hello,world");
 
 
     // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
+let elements = [45, 20, 'kotik', 'lopata', true, null];
+function list (array){
+    for ( const element of array) {
 
+        document.write(`<ul>`);{
+            console.log(element);
+            document.write(`<li> ${element} </li>`);
 
+            document.write(`</ul>`);
+        }
+    }
+}
+list(elements);
     // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
-
-
+    let data =[
+            { id:1, name:'john',age: 25,},
+            { id:2, name:'anna',age: 16,},
+            { id:3, name:'denis',age: 31,}
+   ]
+    function form(data) {
+        for (const obj of data) {
+            document.write(`<ul>`)
+            for (const key in obj) {
+                document.write(` <li>${key} : ${obj[key]}</li>`)
+            }
+            document.write(`<ul/>`)
+        }
+    }
+form(data);
     // - створити функцію яка повертає найменьше число з масиву
 
+function minNumber(){
+    let min = arguments[0];
+    for (const argument of arguments){
+        if (argument < min){
+            min = argument; }
+
+    }
+    console.log('min:', min)
+    return min;
+}
+minNumber(5, 9, 25, 20);
 
     // - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
+    let numbers = [10, 3, 11, 9]
+    let result = sum(numbers)
+function sum(arr){
+        let total = 0
+    for (const arrElement of arr){
+       total += arrElement;
+    }
+    return total
+}
+console.log(result);
+//sum(numbers);
 
-
-
-    // - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
+    // - створити функцію swap(arr,index1,index2). Функція міняє місцями значення у відповідних індексах
     // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
-
+    let numbers2 = [11,22,33,44]
+function swap(arr, index1, index2){
+    const temp = arr[index1];
+    arr[index1] = arr[index2];
+    arr[index2] = temp;
+}
+swap(numbers2, 0, 1);
+    console.log(numbers2);
 
     // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
     // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
+
+
+    let currencyValues = [
+        {currency:'USD', value:40 },
+        {currency: 'EUR',value:41 },
+        {currency: 'CHF', value:31 },
+        {currency: 'PLN', value: 8 },
+        {currency:'UAH', value: 1 },
+        {currency:'GBR', value: 50 }    ]
+    function exchange ( currencyValues, sumUAH, exchangeCurrency ) {
+        for (const currencyValue of currencyValues) {
+            if (currencyValue.currency === exchangeCurrency) {
+                return sumUAH / currencyValue.value;
+
+            }
+        }
+    }
+const currencies = ['USD','EUR','CHF', 'PLN','UAH', 'GBR']
+    for(const currency of currencies ){
+    let result1 = exchange( currencyValues, 1000, currency);
+        console.log(result1)}
+
+
+
+
 
 </script>
 
