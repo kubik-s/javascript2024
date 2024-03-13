@@ -83,15 +83,18 @@ cyclesLi( 'hello, my friend', 3);
 
 // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
 
- let elements = [45, 20, 'kotik', 'lopata', true, null];
- const list =  (array) =>{
-     array.forEach((element) => {
-             console.log(element);
-             document.write(`<ul><li> ${element} </li></ul>`);
-     });
-     };
 
- list(elements);
+
+
+
+const list =  (array) =>{
+    array.forEach((element) => {
+        console.log(element);
+        document.write(`<ul><li> ${element} </li></ul>`);
+    });
+};
+
+list(elements);
 
 
 

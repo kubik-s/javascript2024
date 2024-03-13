@@ -87,14 +87,13 @@ uls("hello,world");
     // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
 let elements = [45, 20, 'kotik', 'lopata', true, null];
 function list (array){
+
+    document.write(`<ul>`);{
     for ( const element of array) {
-
-        document.write(`<ul>`);{
-            console.log(element);
+        console.log(element);
             document.write(`<li> ${element} </li>`);
-
-            document.write(`</ul>`);
-        }
+    }
+        document.write(`</ul>`);
     }
 }
 list(elements);
